@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+            src: url('assets/fonts/InterVariable.woff2') format('woff2');
+        }
+
+        body {
+            width: fit-content;
+            padding: 10px;
+            font-family: "Inter";
+            margin: 0;
+            background: #000000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 8px;
+            width: max-content;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+            white-space: nowrap;
+        }
+
+        .badge {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: #000000;
+            background: #ffffff;
+            padding: 3px 7px;
+            border-radius: 99px;
+            line-height: 1;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .site-box {
+            flex: 1;
+            min-width: 0;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0 10px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+
+        .site-icon {
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 0;
+        }
+
+        .domain {
+            font-size: 11px;
+            color: #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .toggle-btn {
+            flex-shrink: 0;
+            height: 36px;
+            padding: 0 14px;
+            border: none;
+            border-radius: 12px;
+            background: #1a1a1a;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 400;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            user-select: none;
+        }
+
+        .toggle-btn.active {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .toggle-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .font-select {
+            flex-shrink: 0;
+            appearance: none;
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            padding: 0;
+            margin: 0 0 0 auto;
+            border: none;
+            background: transparent;
+            background-image: url('assets/settings.svg');
+            background-size: 18px 18px;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: transparent;
+            cursor: pointer;
+        }
+
+        .font-select option {
+            color: #000000;
+        }
+
+        .font-select:focus,
+        .font-select:focus-visible {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="title">Interminator</span>
+            <span class="badge">v5.1</span>
+            <select class="font-select" id="fontSelect" title="Font">
+                <option value="inter">Inter</option>
+                <option value="geist">Geist</option>
+            </select>
+        </div>
+        <div class="info-row">
+            <div class="site-box">
+                <img class="site-icon" id="siteIcon" src="" alt="" />
+                <span class="domain" id="siteName">Loading...</span>
+            </div>
+            <button type="button" class="toggle-btn" id="toggleBtn">turn on</button>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>

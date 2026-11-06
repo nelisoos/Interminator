@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Interminator",
+  "version": "5.1",
+  "description": "Replace all fonts with Inter font family on selected websites",
+  "icons": {
+    "128": "assets/icon128.png"
+  },
+  "permissions": ["storage", "contextMenus", "favicon"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "19": "assets/icon19.png",
+      "38": "assets/icon38.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/fonts/InterVariable.woff2"],
+      "matches": ["<all_urls>"],
+      "use_dynamic_url": true
+    }
+  ]
+}
